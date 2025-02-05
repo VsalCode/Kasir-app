@@ -12,12 +12,31 @@ export default class App extends Component {
 
     this.state = {
       menus: [],
+      categoryChoosen: "Makanan",
     };
   }
 
   componentDidMount() {
     axios
-      .get(API_URL + "/products")
+      .get(API_URL + "/products?category.nama=" + this.state.categoryChoosen)
+      .then((res) => {
+        console.log("Data yang diterima:", res.data);
+        const menus = res.data;
+        this.setState({ menus });
+      })
+      .catch((error) => {
+        console.error("Error fetching menus:", error);
+      });
+  }
+
+  changeCategory = (value) => {
+    this.setState({
+      categoryChoosen: value,
+      menus: [],
+    });
+
+    axios
+      .get(API_URL + "/products?category.nama=" + value)
       .then((res) => {
         console.log("Data yang diterima:", res.data);
         const menus = res.data;
@@ -29,7 +48,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { menus } = this.state;
+    const { menus , categoryChoosen } = this.state;
     return (
       <ErrorBoundary>
         <div className="App">
@@ -37,7 +56,7 @@ export default class App extends Component {
           <div className="py-4 text-center">
             <Container fluid className="px-5">
               <Row>
-                <Categories />
+                <Categories changeCategory={this.changeCategory} categoryChoosen={categoryChoosen} />
                 <Col>
                   <h5>
                     <strong>Daftar Produk</strong>

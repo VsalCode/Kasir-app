@@ -24,5 +24,15 @@ strong{
     font-weight: 700;
 }
 
+.ListGroup.Item{
+    background-color: #16423C;
+    color: white;
+}
+
+.category-active{
+    background-color: #6A9C89;
+    color: white;
+    font-style: italic;
+}
 
 
