@@ -2,10 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica, sans-serif;
+    font-family: Helvetica bold, sans-serif;
 }
 
-Container{
-    text-align: center;
+#navbar{
+    background-color: #16423C;
 }
+
+.navbar > .Container{
+    background-color: #16423C;
+
+}
+
+.nav-text{
+    color: white;
+    font-weight: 600;
+}
+
+strong{
+    color: #16423C;
+    font-weight: 700;
+}
+
+
 
