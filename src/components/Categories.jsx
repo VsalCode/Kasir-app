@@ -36,14 +36,12 @@ export default class Categories extends Component {
   }
 
   render() {
-    const { categories } = this.state;
-    const { changeCategory, categoryChoosen } = this.props;
+    const { categories } = this.state
+    const { changeCategory, categoryChoosen } = this.props
 
     return (
-      <Col md={2}>
-        <h5>
-          <strong>Daftar Kategori</strong>
-        </h5>
+      <Col md={2} className="kategori">
+        <h4><strong>Daftar Kategori</strong></h4>
 
         <hr />
         <ListGroup>

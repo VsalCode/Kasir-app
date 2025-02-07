@@ -2,12 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica bold, sans-serif;
+    font-family: Roboto, Helvetica bold, sans-serif;
 }
+
 
 #navbar{
     background-color: #16423C;
 }
+
 
 .navbar > .Container{
     background-color: #16423C;
@@ -30,9 +32,15 @@ strong{
 }
 
 .category-active{
-    background-color: #6A9C89;
+    background-color: #468585;
     color: white;
-    font-style: italic;
 }
 
-
+.menu-transition {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1; /* Default opacity is 1 */
+  }
+  
+  .menu-transition-hidden {
+    opacity: 0; /* Hidden state */
+  }
