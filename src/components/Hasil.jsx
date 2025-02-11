@@ -6,6 +6,9 @@ export default class Hasil extends Component {
   render() {
     const { carts } = this.props;
 
+    // Log the carts data to check its structure
+    console.log("Carts data:", carts);
+
     return (
       <Col md={3}>
         <h5>
@@ -15,8 +18,8 @@ export default class Hasil extends Component {
 
         {carts.length !== 0 && (
           <ListGroup variant="flush">
-            {carts.map((menuKeranjang) => (
-              <ListGroup.Item key={menuKeranjang.product?.id}>
+            {carts.map((menuKeranjang, index) => (
+              <ListGroup.Item key={`${menuKeranjang.product?.id}-${index}`}>
                 <Row className="d-flex align-items-center">
                   <Col xs={2}>
                     <h6>
@@ -25,10 +28,14 @@ export default class Hasil extends Component {
                   </Col>
                   <Col className="md">
                     <h6>{menuKeranjang.product?.nama}</h6>
-                    <p>Rp.{menuKeranjang.product?.harga !== undefined && menuKeranjang.product?.harga !== null ? numberWithCommas(menuKeranjang.product.harga) : "N/A"}</p>
+                    <p>
+                      Rp. {menuKeranjang.product?.harga !== undefined && menuKeranjang.product?.harga !== null ? numberWithCommas(menuKeranjang.product.harga) : "N/A"}
+                    </p>
                   </Col>
                   <Col className="float-right">
-                    <strong>Rp.{menuKeranjang.total_harga !== undefined && menuKeranjang.total_harga !== null ? numberWithCommas(menuKeranjang.total_harga) : "N/A"}</strong>
+                    <strong>
+                      Rp. {menuKeranjang.total_harga !== undefined && menuKeranjang.total_harga !== null ? numberWithCommas(menuKeranjang.total_harga) : "N/A"}
+                    </strong>
                   </Col>
                 </Row>
               </ListGroup.Item>
